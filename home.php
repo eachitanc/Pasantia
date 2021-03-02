@@ -5,7 +5,8 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 ?>
-<?php   include 'navbar.php' ?>
-contenido html
+<?php include 'navbar.php' ?>
 
-<?php include 'complemento.php';
+                <div class="container-fluid p-3">Contenido de bienvenida</div>
+<?php
+include 'complemento.php';

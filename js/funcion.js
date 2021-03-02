@@ -32,8 +32,8 @@ $(function ($) {
                 url: 'validarLogin.php',
                 data: {user: user, pass: pass}
             }).done(function (res) {
-                if (res.mensaje === 1) {
-                    window.location = "vigencia.php";
+                if (res.mensaje === '1') {
+                    window.location = "/contable/vigencia.php";
                 } else {
                     $('#divModalErrorDatos').modal('show');
                     /*$('#divError').show();

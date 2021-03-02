@@ -8,12 +8,13 @@ $contrasena = ($_POST['pass']);
 try {
     $cmd = new PDO("$bd_driver:host=$bd_servidor;dbname=$bd_base;$charset", $bd_usuario, $bd_clave);
     //manipular
-    $sql = "SELECT id_usuario,login,clave, CONCAT(nombre1, ' ', apellido1) as nombre FROM seg_usuarios  WHERE login='$usuario'";
+    $sql = "SELECT id_usuario,login,clave, CONCAT(nombre1, ' ', apellido1) as nombre,id_rol FROM seg_usuarios  WHERE login='$usuario'";
     $rs = $cmd->query($sql);
     $obj = $rs->fetch();
     if ($obj['login'] === $usuario && $obj['clave'] === $contrasena) {
         $_SESSION['id_user'] = $obj['id_usuario'];
         $_SESSION['user'] = $obj['nombre'];
+        $_SESSION['rol'] = $obj['id_rol'];
         $res['mensaje'] = 1;
     } else {
         $res['mensaje'] = 0;
